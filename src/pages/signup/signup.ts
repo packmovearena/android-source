@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from "ionic-angular";
+import { App, NavController, NavParams,ViewController } from "ionic-angular";
 import { User } from "../models/user";
 import { MapView } from "../mapview/mapview";
 
@@ -10,14 +10,12 @@ import { MapView } from "../mapview/mapview";
 export class SignUp {
   user: User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.navCtrl = navCtrl;
-    this.navParams = navParams;
+  constructor(public navCtrl: NavController, public navParams: NavParams ,public viewCtrl: ViewController , public appCtrl: App) {
     this.user = this.navParams.data;
-    console.log(this.user);
   }
 
   signUp = function(): void {
-    this.navCtrl.push(MapView , this.user.mobileNumber);
+    this.viewCtrl.dismiss();
+    this.appCtrl.getRootNav().push(MapView , this.user.mobileNumber);
   };
 }

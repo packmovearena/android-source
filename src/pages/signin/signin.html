@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list no-lines>
+    <ion-row>
+      <ion-col col-3 offset-1>
+        <ion-item>
+          <ion-input id="countryCode" type="text" [(ngModel)]="user.countryCode" readonly></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-7>
+        <ion-item>
+          <ion-input id="mobileNumber" type="tel" [(ngModel)]="user.mobileNumber" maxlength="10" placeholder="Mobile number" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <div padding>
+    <button ion-button full col-10 offset-1 (click)="signIn()">Sign In</button>
+  </div>
+</ion-content>

@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -8,7 +9,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SignIn } from "../pages/signin/signin";
 import { SignUp } from "../pages/signup/signup";
 import { MapView } from "../pages/mapview/mapview";
-import { About , Contact , Map , Payments , RateCard , Share , Trips } from "./app.config";
+import { About , Bookings , Contact , Map , Payments , RateCard , Share , Profile } from "./app.config";
+import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleMaps } from "@ionic-native/google-maps";
 
 @NgModule({
   declarations: [
@@ -23,11 +26,12 @@ import { About , Contact , Map , Payments , RateCard , Share , Trips } from "./a
     Share,
     SignIn,
     SignUp,
-    Trips
+    Bookings
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,16 +41,19 @@ import { About , Contact , Map , Payments , RateCard , Share , Trips } from "./a
     HomePage,
     MapView,
     Map,
+    Profile,
     Payments,
     RateCard,
     Share,
     SignIn,
     SignUp,
-    Trips
+    Bookings
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

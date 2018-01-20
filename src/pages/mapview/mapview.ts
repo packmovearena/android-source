@@ -2,7 +2,8 @@ import { Component , ViewChild} from '@angular/core';
 import { NavController , NavParams , Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { About , Contact , Map , Payments , RateCard , Share , Trips } from "../../app/app.config";
+import { About , Contact , Map , Payments , RateCard , Share , Bookings } from "../../app/app.config";
+import {Profile} from "../profile/profile";
 
 @Component({
   selector: 'page-mapview',
@@ -14,6 +15,7 @@ export class MapView {
   mapPage: any = Map;
   mobileNumber: number;
   pages: Array<{title: string, component: any}>;
+  profile: {title: string, component: any};
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
@@ -21,8 +23,10 @@ export class MapView {
     this.navCtrl = navCtrl;
     this.navParams = navParams;
     this.mobileNumber = this.navParams.data;
+    this.profile = { title: 'Profile', component: Profile };
+
     this.pages = [
-      { title: 'Trips', component: Trips },
+      { title: 'Bookings', component: Bookings },
       { title: 'Payments', component: Payments },
       { title: 'Rate Card', component: RateCard },
       { title: 'Refer and Earn', component: Share },

@@ -1,27 +1,26 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import {IonicApp, IonicModule, IonicErrorHandler, Loading} from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SignIn } from "../pages/signin/signin";
 import { SignUp } from "../pages/signup/signup";
 import { MapView } from "../pages/mapview/mapview";
-import { About , Bookings , Contact , Map , Payments , RateCard , Share , Profile } from "./app.config";
+import { About , Bookings , Contact , Map , Payments , RateCard , Share , Pointer , Profile } from "./app.config";
 import { Geolocation } from '@ionic-native/geolocation';
-import { GoogleMaps } from "@ionic-native/google-maps";
 
 @NgModule({
   declarations: [
     MyApp,
     About,
     Contact,
-    HomePage,
     MapView,
     Map,
     Payments,
+    Pointer,
+    Profile,
     RateCard,
     Share,
     SignIn,
@@ -38,10 +37,10 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     MyApp,
     About,
     Contact,
-    HomePage,
     MapView,
     Map,
     Profile,
+    Pointer,
     Payments,
     RateCard,
     Share,
@@ -53,7 +52,6 @@ import { GoogleMaps } from "@ionic-native/google-maps";
     StatusBar,
     SplashScreen,
     Geolocation,
-    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

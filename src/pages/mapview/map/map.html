@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header style="position: absolute;">
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -8,7 +8,10 @@
 </ion-header>
 
 <ion-content>
-    <pickup-location></pickup-location>
+    <ion-item style="position: absolute;width:85%;margin-top: 5px;">
+      <ion-label>From :</ion-label>
+      <ion-input id="pickupLocation" type="text" [(ngModel)]="pickupLocation" disabled></ion-input>
+    </ion-item>
     <div id="map"></div>
     <pointer></pointer>
 </ion-content>

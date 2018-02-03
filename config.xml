@@ -85,7 +85,9 @@
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-sqlite-storage" spec="^2.2.0" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAHXIXbrS7MmvEE3BzzTKYKTw0-Nw2XTBo" />
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCnob95HJHmVoPGU28jLtVG9mekDC2Oxww" />
     </plugin>
+    <plugin name="cordova-plugin-nativegeocoder" spec="^2.0.5" />
+    <allow-navigation href="http://192.168.43.237:8100" />
     <engine name="android" spec="^7.0.0" />
 </widget>

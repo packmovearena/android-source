@@ -1,8 +1,10 @@
-.main-row {
-  overflow: scroll;
-  width: 1000px;
+.scroller {
   margin-left: 10px;
   margin-top: 5px;
+  padding-right: 10px;
+}
+.main-row {
+  overflow: scroll;
 }
 
 .scroll-element {
@@ -21,4 +23,8 @@
   .active {
     background-color: #607D8B;
   }
+}
+
+.eta {
+  text-align: center;
 }

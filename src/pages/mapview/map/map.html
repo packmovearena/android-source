@@ -8,11 +8,12 @@
 </ion-header>
 
 <ion-content>
-    <ion-item style="position: absolute;width:85%;margin-top: 5px;">
+    <ion-item class="pickup">
       <ion-label>From :</ion-label>
       <ion-input id="pickupLocation" type="text" [(ngModel)]="pickupLocation" disabled></ion-input>
     </ion-item>
     <div id="map"></div>
     <pointer></pointer>
+    <button class="book" ion-button full>Book Now</button>
     <horizontal-scroll [vehicleList]="vehicleList"></horizontal-scroll>
 </ion-content>

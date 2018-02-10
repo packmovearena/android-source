@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {IonicApp, IonicModule, IonicErrorHandler, Loading} from 'ionic-angular';
+import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -8,7 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SignIn } from "../pages/signin/signin";
 import { SignUp } from "../pages/signup/signup";
 import { MapView } from "../pages/mapview/mapview";
-import { About , Bookings , Contact , Map , Payments , RateCard , Share , Pointer , Profile } from "./app.config";
+import { About , Bookings , Contact , MapPage , Payments , RateCard , HorizontalScroll , Share , Pointer , Profile } from "./app.config";
 import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
@@ -17,11 +17,12 @@ import { Geolocation } from '@ionic-native/geolocation';
     About,
     Contact,
     MapView,
-    Map,
+    MapPage,
     Payments,
     Pointer,
     Profile,
     RateCard,
+    HorizontalScroll,
     Share,
     SignIn,
     SignUp,
@@ -38,11 +39,12 @@ import { Geolocation } from '@ionic-native/geolocation';
     About,
     Contact,
     MapView,
-    Map,
+    MapPage,
     Profile,
     Pointer,
     Payments,
     RateCard,
+    HorizontalScroll,
     Share,
     SignIn,
     SignUp,

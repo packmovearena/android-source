@@ -1,3 +1,9 @@
-.pheader {
-  background-color: #f8f8f8;
+.navHeader {
+  cursor: pointer;
+  height : 100px;
+  img {
+    width : 40px;
+    float : left;
+    clear: right;
+  }
 }

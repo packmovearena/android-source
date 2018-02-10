@@ -13,7 +13,7 @@ export class MyApp {
   rootPage:any ;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen ,
-              private storage: Storage , public appCtrl: App) {
+              public storage: Storage , public appCtrl: App) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -26,7 +26,7 @@ export class MyApp {
   getPage = function(): any {
     this.storage.get('user').then((user: any) => {
       if(user) {
-        this.appCtrl.getRootNavs()[0].push(MapView , user.mobileNumber);
+        this.appCtrl.getRootNavs()[0].push(MapView , user);
       } else {
         this.rootPage = SignIn;
       }

@@ -2,8 +2,9 @@ import { Component , ViewChild} from '@angular/core';
 import { NavController , NavParams , Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { About , Contact , Map , Payments , RateCard , Share , Bookings } from "../../app/app.config";
+import { About , Contact , MapPage , Payments , RateCard , Share , Bookings } from "../../app/app.config";
 import {Profile} from "../profile/profile";
+import {User} from "../models/user";
 
 @Component({
   selector: 'page-mapview',
@@ -12,19 +13,17 @@ import {Profile} from "../profile/profile";
 
 export class MapView {
   @ViewChild(Nav) nav: Nav;
-  mapPage: any = Map;
-  mobileNumber: number;
+  mapPage: any ;
+  user: User;
   pages: Array<{title: string, component: any}>;
   profile: {title: string, component: any};
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-    this.navCtrl = navCtrl;
-    this.navParams = navParams;
-    this.mobileNumber = this.navParams.data;
+    this.mapPage = MapPage;
+    this.user = this.navParams.data;
     this.profile = { title: 'Profile', component: Profile };
-
     this.pages = [
       { title: 'Bookings', component: Bookings },
       { title: 'Payments', component: Payments },
@@ -46,6 +45,6 @@ export class MapView {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.push(page.component);
   }
 }

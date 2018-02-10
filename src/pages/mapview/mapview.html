@@ -1,8 +1,8 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar>
-      <ion-icon name="avatar"></ion-icon>
-      <button menuClose class="pheader" (click)="openPage(profile)">Profile</button>
+    <ion-toolbar color="header" class="navHeader">
+      <img src="assets/imgs/avatar.png">
+      <ion-title menuClose (click)="openPage(profile)">{{user.userName}}</ion-title>
     </ion-toolbar>
   </ion-header>
 

@@ -1,5 +1,66 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="header">
     <ion-title text-left>Profile</ion-title>
   </ion-navbar>
 </ion-header>
+
+<ion-content margin-top="150px">
+  <ion-list no-lines *ngIf="user">
+    <ion-row>
+      <ion-col col-3 offset-1>
+        <ion-item>
+          <ion-input id="countryCode"
+                     name="countryCode"
+                     type="text"
+                     [(ngModel)]="user.countryCode"
+                     disabled>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-7>
+        <ion-item>
+          <ion-input id="mobileNumber"
+                     name="mobileNumber"
+                     type="tel" [(ngModel)]="user.mobileNumber"
+                     maxlength="10"
+                     disabled>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-10 offset-1>
+        <ion-item>
+          <ion-input id="userName"
+                     name="userName"
+                     type="text"
+                     [(ngModel)]="user.userName"
+                     placeholder="User Name"
+                     (click)="edit()"
+                     [disabled]="isDisabled()"
+                     required>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-10 offset-1>
+        <ion-item>
+          <ion-input id="emailId"
+                     name="emailId"
+                     type="text"
+                     [(ngModel)]="user.emailId"
+                     placeholder="Email Id"
+                     (click)="edit()"
+                     [disabled]="isDisabled()"
+                     required>
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <div padding>
+    <button ion-button full col-10 offset-1 (click)="save()" *ngIf="!isDisabled()">Save</button>
+    <button ion-button full col-10 offset-1 (click)="logOut()" *ngIf="isDisabled()">Log Out</button>
+  </div>
+</ion-content>

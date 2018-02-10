@@ -6,21 +6,21 @@ import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-signup',
-  templateUrl: '../signin/signup.html'
+  templateUrl: '../signup/signup.html'
 })
 export class SignUp {
   user: User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams ,
               public viewCtrl: ViewController , public appCtrl: App ,
-              private storage: Storage) {
+              public storage: Storage) {
     this.user = this.navParams.data;
   }
 
   signUp = function(): void {
     this.saveToDB();
     this.viewCtrl.dismiss();
-    this.appCtrl.getRootNav().push(MapView , this.user.mobileNumber);
+    this.navCtrl.setRoot(MapView , this.user);
   };
 
   saveToDB = function(): any {

@@ -13,7 +13,6 @@ export class SignIn {
   page: any;
 
   constructor(public navCtrl: NavController) {
-    this.navCtrl = navCtrl;
   }
 
   signIn = function(): void {

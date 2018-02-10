@@ -1,20 +1,38 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content padding>
   <ion-list no-lines>
     <ion-row>
       <ion-col col-3 offset-1>
         <ion-item>
-          <ion-input id="countryCode" type="text" [(ngModel)]="countryCode" readonly></ion-input>
+          <ion-input id="countryCode" type="text" [(ngModel)]="user.countryCode" readonly></ion-input>
         </ion-item>
       </ion-col>
       <ion-col col-7>
         <ion-item>
-          <ion-input id="mobileNumber" type="tel" [(ngModel)]="mobileNumber" maxlength="10" placeholder="Mobile number" required></ion-input>
+          <ion-input id="mobileNumber" type="tel" [(ngModel)]="user.mobileNumber" maxlength="10" placeholder="Mobile number" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-10 offset-1>
+        <ion-item>
+          <ion-input id="userName" type="text" [(ngModel)]="user.userName" placeholder="User Name" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-10 offset-1>
+        <ion-item>
+          <ion-input id="emailId" type="text" [(ngModel)]="user.emailId" placeholder="Email Id" required></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
   </ion-list>
   <div padding>
-    <button ion-button full col-10 offset-1 (click)="signIn()">Sign Up</button>
+    <button ion-button full col-10 offset-1 (click)="signUp()">Sign Up</button>
   </div>
 </ion-content>
-

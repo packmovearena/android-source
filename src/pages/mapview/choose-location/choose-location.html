@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title text-left>Enter {{type}} Location</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <div id="locationField">
+        <input id="autocomplete" placeholder="Enter a locality or landmark" type="text" (focus)="searchLocation()" autofocus>
+        <ion-icon name="search" id="search"></ion-icon>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

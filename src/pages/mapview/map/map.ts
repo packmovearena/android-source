@@ -2,6 +2,7 @@ import { Component , NgZone } from '@angular/core';
 import {NavController, ViewController, LoadingController, Platform} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleMap , GoogleMapsEvent} from "@ionic-native/google-maps";
+import { Location } from "../../models/location";
 
 declare var google: any;
 
@@ -15,9 +16,12 @@ export class MapPage {
   timer: any;
   loader: any;
   location: any;
-  pickupLocation: any;
+  pickupLocation: Location = new Location();
+  dropLocation: Location = new Location();
   geocoder: any;
   vehicleList: Array<string> = new Array<string>();
+  isEnabled: boolean = false;
+  locator: any = { pickUp : false , drop : false};
 
   constructor(public navCtrl: NavController, public geolocation: Geolocation,
               public viewCtrl: ViewController, public loadCtrl: LoadingController, public ngZone : NgZone , platform: Platform) {
@@ -94,11 +98,11 @@ export class MapPage {
   }
 
   getLocationText(loc) {
-    this.forceUpdate('pickupLocation' , 'Fetching Address........');
+    this.forceUpdate('pickupLocation' , 'Fetching Address........' , 'text');
       this.geocoder.geocode({'location': loc}, (results, status) => {
         if (status === 'OK') {
           if (results[0]) {
-            this.forceUpdate('pickupLocation' , results[0].formatted_address);
+            this.forceUpdate('pickupLocation' , results[0].formatted_address , 'text');
           }
         } else if (status === 'OVER_QUERY_LIMIT') {
           setTimeout(()=>{
@@ -110,10 +114,53 @@ export class MapPage {
       });
   }
 
-  forceUpdate(field , value) {
+  forceUpdate(field , value , subField) {
     this.ngZone.run(() => {
-      this[field] = value;
+      if(subField) {
+        this[field][subField] = value;
+      } else {
+        this[field] = value;
+      }
     });
   }
 
+  getPickUpLocation() {
+    console.log(this.pickupLocation);
+    return this.pickupLocation;
+  }
+
+  enable() {
+    this.isEnabled = !this.isEnabled;
+    alert(this.isEnabled);
+  }
+
+  getDropLocation() {
+    this.map.moveCamera({target:{lat: -33.8688, lng: 151.2195}});
+  }
+
+  ionViewWillEnter() {
+    if(this.locator.pickUp || this.locator.drop) {
+      this.moveCameraToSelectedLocation();
+    }
+  }
+
+  moveCameraToSelectedLocation() {
+    let location = {};
+    if(this.locator.pickUp) {
+      location = {
+        lat : this.pickupLocation.getLat(),
+        lng : this.pickupLocation.getLng()
+      };
+      this.locator.pickUp = false;
+    } else if(this.locator.drop) {
+      this.locator.drop = false;
+      location = {
+        lat : this.dropLocation.getLat(),
+        lng : this.dropLocation.getLng()
+      };
+    }
+    if(location) {
+      this.map.animateCamera({target: location});
+    }
+  }
 }

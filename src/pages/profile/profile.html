@@ -60,7 +60,7 @@
     </ion-row>
   </ion-list>
   <div padding>
-    <button ion-button full col-10 offset-1 (click)="save()" *ngIf="!isDisabled()">Save</button>
-    <button ion-button full col-10 offset-1 (click)="logOut()" *ngIf="isDisabled()">Log Out</button>
+    <button ion-button full col-10 offset-1 color="button" (click)="save()" *ngIf="!isDisabled()">Save</button>
+    <button ion-button full col-10 offset-1 color="button" (click)="logOut()" *ngIf="isDisabled()">Log Out</button>
   </div>
 </ion-content>

@@ -1,8 +1,10 @@
 export { About } from "../pages/profile/about/about";
 export { Bookings } from "../pages/profile/bookings/bookings";
+export { ChooseLocation } from "../pages/mapview/choose-location/choose-location";
 export { Contact } from "../pages/profile/contact/contact";
 export { MapPage } from "../pages/mapview/map/map";
 export { Payments } from "../pages/profile/payments/payments";
+export { Pickup } from "../pages/mapview/pickup/pickup";
 export { Pointer } from "../pages/mapview/pointer/pointer";
 export { Profile } from "../pages/profile/profile";
 export { RateCard } from "../pages/profile/ratecard/ratecard";

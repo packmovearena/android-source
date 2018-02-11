@@ -15,25 +15,31 @@
   left : 85%;
 }
 
-.pickup {
+pick-up {
   position: absolute;
   width:85%;
-  margin-top: 5px;
+  top: 1%;
+  height: 50px;
+  z-index: 10;
 }
 
 horizontal-scroll {
   position: absolute;
-  top: 86%;
+  top: 85%;
   width: auto;
   background-color: #ECEFF1;
   overflow: visible;
-  height:100px;
+  height:95px;
 }
 
 .book {
   position: absolute;
-  top:78%;
-  background-color: #546E7A;
+  top:77%;
   text-align: center;
   height: 50px;
+}
+
+#pickupLocation {
+  border: hidden;
+  cursor: pointer;
 }

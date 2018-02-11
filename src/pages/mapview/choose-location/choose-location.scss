@@ -1,0 +1,32 @@
+#autocomplete {
+  position: absolute;
+  top: 0px;
+  left: 30px;
+  width: 70%;
+  border: none;
+  height: 30px;
+}
+
+#locationField, #controls {
+  position: relative;
+  width: 480px;
+}
+
+#locationField {
+  margin-bottom: 2px;
+}
+
+#search {
+  font-size: 25px;
+  margin-top: 2px;
+  color: #808080;
+}
+
+.pac-container {
+  width : 360px !important;
+  left : 25px !important;
+}
+
+ion-card {
+  height :40px;
+}

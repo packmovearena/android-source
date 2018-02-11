@@ -8,7 +8,7 @@
   <ion-card>
     <ion-card-content>
       <div id="locationField">
-        <input id="autocomplete" placeholder="Enter a locality or landmark" type="text" (focus)="searchLocation()" autofocus>
+        <input id="autocomplete" placeholder="Enter a locality or landmark" type="text" (focus)="searchLocation()" [(ngModel)]="searchText" autofocus>
         <ion-icon name="search" id="search"></ion-icon>
       </div>
     </ion-card-content>

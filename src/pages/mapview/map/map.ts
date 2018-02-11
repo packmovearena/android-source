@@ -21,7 +21,6 @@ export class MapPage {
   geocoder: any;
   vehicleList: Array<string> = new Array<string>();
   isEnabled: boolean = false;
-  locator: any = { pickUp : false , drop : false};
 
   constructor(public navCtrl: NavController, public geolocation: Geolocation,
               public viewCtrl: ViewController, public loadCtrl: LoadingController, public ngZone : NgZone , platform: Platform) {
@@ -134,26 +133,22 @@ export class MapPage {
     alert(this.isEnabled);
   }
 
-  getDropLocation() {
-    this.map.moveCamera({target:{lat: -33.8688, lng: 151.2195}});
-  }
-
   ionViewWillEnter() {
-    if(this.locator.pickUp || this.locator.drop) {
+    if(this.pickupLocation.isChanged() || this.dropLocation.isChanged()) {
       this.moveCameraToSelectedLocation();
     }
   }
 
   moveCameraToSelectedLocation() {
     let location = {};
-    if(this.locator.pickUp) {
+    if(this.pickupLocation.isChanged()) {
       location = {
         lat : this.pickupLocation.getLat(),
         lng : this.pickupLocation.getLng()
       };
-      this.locator.pickUp = false;
-    } else if(this.locator.drop) {
-      this.locator.drop = false;
+      this.pickupLocation.setChanged(false);
+    } else if(this.dropLocation.isChanged()) {
+      this.dropLocation.setChanged(false);
       location = {
         lat : this.dropLocation.getLat(),
         lng : this.dropLocation.getLng()

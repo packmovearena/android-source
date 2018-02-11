@@ -8,9 +8,9 @@
 </ion-header>
 
 <ion-content>
-    <pick-up [location]="pickupLocation" [geolocation]="geolocation" [locator]="locator"></pick-up>
+    <pick-up [location]="pickupLocation" [geolocation]="geolocation"></pick-up>
     <div id="map"></div>
     <pointer></pointer>
-    <button class="book" color="button" ion-button full (click)="getDropLocation()">Book Now</button>
+    <drop [location]="dropLocation" [geolocation]="geolocation"></drop>
     <horizontal-scroll [vehicleList]="vehicleList"></horizontal-scroll>
 </ion-content>

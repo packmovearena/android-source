@@ -2,6 +2,7 @@ export { About } from "../pages/profile/about/about";
 export { Bookings } from "../pages/profile/bookings/bookings";
 export { ChooseLocation } from "../pages/mapview/choose-location/choose-location";
 export { Contact } from "../pages/profile/contact/contact";
+export { Drop } from "../pages/mapview/drop/drop";
 export { MapPage } from "../pages/mapview/map/map";
 export { Payments } from "../pages/profile/payments/payments";
 export { Pickup } from "../pages/mapview/pickup/pickup";

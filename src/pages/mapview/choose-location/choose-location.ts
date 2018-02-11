@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams, Platform} from "ionic-angular";
 import { Geolocation } from '@ionic-native/geolocation';
+import {Location} from "../../models/location";
 
 declare var google: any;
 
@@ -12,7 +13,9 @@ declare var google: any;
 export class ChooseLocation {
   autoComplete:any;
   type:string ;
-  location:any;
+  location:Location;
+  searchText:any;
+  previousSearchText:any;
 
   constructor(private geolocation: Geolocation,private navParams: NavParams,
               private platform: Platform , private navCtrl: NavController) {
@@ -27,10 +30,16 @@ export class ChooseLocation {
       this.autoComplete.setComponentRestrictions({'country': ['in']});
       this.autoComplete.addListener('place_changed',() => {
         let place = this.autoComplete.getPlace();
-        this.location.text = place.formatted_address;
-        this.location.id = place.place_id;
-        this.location.setLat(place.geometry.location.toJSON().lat);
-        this.location.setLng(place.geometry.location.toJSON().lng);
+        if(place) {
+          let location = place.geometry.location.toJSON();
+          if(location.lat && location.lng) {
+            this.location.setText(place.formatted_address);
+            this.location.setId(place.place_id);
+            this.location.setLat(location.lat);
+            this.location.setLng(location.lng);
+            this.location.setChanged(true);
+          }
+        }
         this.navCtrl.pop();
       });
     });
@@ -38,6 +47,10 @@ export class ChooseLocation {
 
 
   searchLocation() {
+    if(!this.searchText || this.searchText == this.previousSearchText) {
+        return;
+    }
+    this.previousSearchText = this.searchText;
     let options = { timeout:10000 , enableHighAccuracy:true };
     this.geolocation.getCurrentPosition(options).then((position) => {
       let geolocation = {

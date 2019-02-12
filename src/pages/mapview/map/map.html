@@ -1,9 +1,11 @@
-<ion-header style="position: absolute;">
-  <ion-navbar color="header">
+<ion-header>
+  <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Go Mover</ion-title>
+    <div class="logo">
+      <img src="assets/imgs/logo.png">
+    </div>
   </ion-navbar>
 </ion-header>
 
@@ -12,5 +14,4 @@
     <div id="map"></div>
     <pointer></pointer>
     <drop [location]="dropLocation" [geolocation]="geolocation"></drop>
-    <horizontal-scroll [vehicleList]="vehicleList"></horizontal-scroll>
 </ion-content>

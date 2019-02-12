@@ -9,7 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SignIn } from "../pages/signin/signin";
 import { SignUp } from "../pages/signup/signup";
 import { MapView } from "../pages/mapview/mapview";
-import { About , Bookings , ChooseLocation , Contact , Drop , MapPage , Payments , RateCard , HorizontalScroll , Share , Pickup , Pointer , Profile } from "./app.config";
+import { About , Bookings , ChooseLocation , Contact , Drop , MapPage , Payments , RateCard , Share , Pickup , Pointer , Profile } from "./app.config";
 import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
@@ -26,7 +26,6 @@ import { Geolocation } from '@ionic-native/geolocation';
     Pointer,
     Profile,
     RateCard,
-    HorizontalScroll,
     Share,
     SignIn,
     SignUp,
@@ -52,7 +51,6 @@ import { Geolocation } from '@ionic-native/geolocation';
     Payments,
     Pickup,
     RateCard,
-    HorizontalScroll,
     Share,
     SignIn,
     SignUp,
